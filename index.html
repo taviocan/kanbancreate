@@ -179,7 +179,7 @@
                 <div class="col">
                     <ul class="list-unstyled">
                         <li><a href="#page-top" class="text-white">Home</a></li>
-                        <li><a href="#page-top" class="text-white">Privacy Policies</a></li>
+                        <li><a href="privacy.html" class="text-white">Privacy Policies</a></li>
                     </ul>
                 </div>
                 <div class="col">
@@ -189,5 +189,25 @@
             </div>
         </div>
     </footer>
+	
+	<div id="cookieConsent" style="position: fixed; bottom: 0; left: 0; right: 0; background: #222; color: #fff; padding: 15px; text-align: center; z-index: 9999; display: none;">
+		By navigating this website, you accept our <a href="privacy.html" style="color: #0d6efd; text-decoration: underline;">Privacy Policy</a>.
+		<button id="cookieConsentBtn" style="margin-left: 15px; padding: 6px 12px; background-color: #0d6efd; border: none; color: white; border-radius: 4px; cursor: pointer;">
+			OK
+		</button>
+	</div>
+	
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			if (!localStorage.getItem("cookieConsentAccepted")) {
+				document.getElementById("cookieConsent").style.display = "block";
+			}
+
+			document.getElementById("cookieConsentBtn").addEventListener("click", function () {
+				localStorage.setItem("cookieConsentAccepted", "true");
+				document.getElementById("cookieConsent").style.display = "none";
+			});
+		});
+	</script>
 </body>
 </html>
